@@ -53,3 +53,17 @@ body, .viewport-height{
   font-weight: bold;
 }
 
+.row-flex{
+  display: flex;
+}
+.col-flex{
+  flex-direction: column;
+  flex: 0 0 45vw;
+}
+
+@media screen and (max-width: 600px){
+  .col-flex{
+    flex-direction: column;
+    flex: 0 0 100vw;
+  }
+}

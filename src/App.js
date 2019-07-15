@@ -9,8 +9,7 @@ import thunk from 'redux-thunk';
 import fetchingData from './reducers/searchedLocationReducer';
 const middleware = [thunk];
 const store = createStore(fetchingData);
-console.log("======store.getState()", store.getState());
-store.subscribe(() => console.log('Look ma, Redux!!'))
+store.subscribe(() => console.log('Redux!!'))
 
 export class App extends React.Component{
   render(){

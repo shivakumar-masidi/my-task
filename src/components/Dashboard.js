@@ -11,18 +11,17 @@ export class Dashboard extends Component {
     }
   }
   mapContent = (data) => {
-    console.log("dashboard js data ", data);
     this.setState({mapContent: data})
   }
   render() {
     return (
       <React.Fragment>
         <div className="container-fluid jumbotron viewport-height">
-          <div className="row">
-            <div className="col">
+          <div className="row row-flex">
+            <div className="col col-flex">
               <SearchComponent mapContent={this.mapContent}/>
             </div>
-            <div className="col">
+            <div className="col col-flex">
               <MapContainer mapContent={this.state.mapContent}/>
             </div>
           </div>

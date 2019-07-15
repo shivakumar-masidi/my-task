@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PlacesAutocomplete from 'react-places-autocomplete';
-import { searchedLocation } from '../actions/searchedLocation'
 import {
     geocodeByAddress,
     getLatLng,
@@ -13,31 +12,41 @@ export class LocationSearchInput extends Component {
     this.state = { 
       address: '',
       selectedLat: '',
-      selectedLng: ''
+      selectedLng: '',
+      searchHistory: []
       }
-    };
- 
+  };
+  
   handleChange = address => {
     this.setState({ address });
   };
   
   handleSelect = address => {
-    this.setState({address: address});
-    
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(latLng => {
+        this.updateSeachHistory(address, latLng);
         this.setState({ 
+          address: address,
           selectedLat : latLng.lat,
           selectedLng: latLng.lng
-        })
-        console.log('Success', latLng)
-        console.log(this.state)
-        this.props.getMapDetails(this.state)
+        });
+        this.props.setData(this.state);
+        this.props.getMapDetails(this.state);
       })
       .catch(error => console.error('Error', error))
   };
-
+  updateSeachHistory = (address, latLng) => {
+      let searchHistory = this.state.searchHistory;
+      searchHistory.push({ 
+        address: address,
+        selectedLat : latLng.lat,
+        selectedLng: latLng.lng
+      });
+      this.setState({
+        searchHistory : searchHistory
+      });
+  }
   render() {
     return (
       <div>
@@ -87,9 +96,18 @@ export class LocationSearchInput extends Component {
   }
 }
 
-export default connect(
-  state => ({
-    searchedLocation: state.fetchingData,
-  }), {
-    searchedLocation
-  })(LocationSearchInput);
+const mapStateToProps = (state) => {
+  return {
+    storeData: state || []
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setData: (data) => {
+      dispatch({ type: 'SEARCHED_LOCATION' , data: data} );
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)( LocationSearchInput);

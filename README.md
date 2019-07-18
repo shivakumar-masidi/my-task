@@ -7,9 +7,8 @@ Steps to Run application
 
 2. Go to root folder in command promt and Install dependency packages by giving "npm i".
 
-3. Google API key has to be replaced in two places.
-\*ProjectFolder*\public\index.html - <YOUR API KEY> -line 16
-\*ProjectFolder*\src\components\MapContainer.js - <YOUR API KEY> - line 63.
+3. Google API key has to be replaced in one place.
+\*ProjectFolder*\.env.development - <YOUR API KEY> -line 1
 
 4. Give command 'npm start'.
 
@@ -17,5 +16,5 @@ Steps to Run application
 
 6. Seach location in input field and see the corresponding location in the map.
 
-7. History can be seen by clickinh "Show Search History" button.
+7. History can be seen by clicking "Show Search History" button.
 

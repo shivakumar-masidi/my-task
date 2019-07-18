@@ -4,6 +4,7 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 const mapStyle = {
   height: '500px'
 }
+
 class MapContainer extends Component {
   constructor(props){
     super(props);
@@ -11,14 +12,24 @@ class MapContainer extends Component {
       showingInfoWindow: false,
       mapContent: {
         address: '',
-        selectedLat: 15.1393932,
-        selectedLng: 76.92144280000002
+        selectedLat: '',
+        selectedLng: ''
       },
       activeMarker: {},
       selectedPlace: {},
       searchHistory: []
     }
-} 
+  }
+  componentDidMount(){
+    navigator.geolocation.getCurrentPosition(position => {
+      this.setState({
+        mapContent: {
+          selectedLat: position.coords.latitude,
+          selectedLng: position.coords.longitude
+        }
+      })
+    });
+  } 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.mapContent !== prevProps.mapContent) {
       this.setState({
@@ -60,7 +71,7 @@ class MapContainer extends Component {
   }
 }
 export default GoogleApiWrapper({
-    apiKey: '<YOUR API KEY>'
+    apiKey: process.env.REACT_APP_GOOGLE_API_KEY
   })(MapContainer);
   
   

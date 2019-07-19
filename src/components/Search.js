@@ -34,12 +34,12 @@ export class SearchComponent extends Component {
     return (
       <React.Fragment>
         <LocationSearchInput inputProps={inputProps} getMapDetails={this.getMapDetails} />
-        <div className="col-sm-12 col-md-8">
+        <div>
             <button className="btn btn-primary" type="button" data-toggle="collapse" data-target=".collapse-search" aria-expanded="false" onClick={this.toggleSearchHistory}>{this.state.toggleSeach ? 'Hide Search History' : 'Show Search History'}</button>
             <div className="collapse collapse-search" id="multiCollapseExample2">
                 <div className="card card-body">
                    {this.state.searchedHistory.length > 0 ?
-                    this.state.searchedHistory.map((x, i) => <ul key={i}><li>{x.address}</li></ul>) : 'No Search History'
+                    this.state.searchedHistory.map((x, i) => <ul key={i}><li className="underLineText">{x.address}</li></ul>) : 'No Search History'
                 }
                 </div>
             </div>

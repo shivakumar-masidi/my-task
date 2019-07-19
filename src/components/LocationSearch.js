@@ -60,13 +60,12 @@ export class LocationSearchInput extends Component {
           <div className="form-group">
             <input
               {...getInputProps({
-                //placeholder: 'Search Places ...',
+                placeholder: 'Search Places ...',
                 className: 'location-search-input form-control',
                 type:'search', 
                 id:'location'
               })}
             />
-            <label className="form-control-placeholder" htmlFor="location">Search Location</label>
             <div className="autocomplete-dropdown-container">
               {loading && <div>Loading...</div>}
               {suggestions.map(suggestion => {

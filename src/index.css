@@ -519,6 +519,10 @@ li > a:only-child:after { content: ''; }
 .banner-image h4 {
     font-size: 20px;
 }
+.banner-image {
+  background: url(images/Globe.png) no-repeat center;
+  background-size: 60%;
+}
 
 /*-- //banner --*/
 
@@ -1102,7 +1106,7 @@ a.move-top span{
 		margin-right: 0em;
 	}
 	.login-icon {
-		right: 12%;
+		right: 25%;
 	}
 }
 
@@ -1138,7 +1142,7 @@ a.move-top span{
 
 @media(max-width:736px) {
 	.login-icon {
-		right: 21%;
+		right: 25%;
 	}
 	.about-text h3 {
 		font-size: 24px;
@@ -1151,11 +1155,14 @@ a.move-top span{
 	}
 	.f1 p {
 		font-size: 14.5px;
-	}
+  }
+  .min-container-height{
+    min-height: 690px;
+  }
 }
 @media(max-width:684px) {
 	.login-icon {
-		right: 19%;
+		right: 40%;
 	}
 }
 @media(max-width:668px) {
@@ -1178,7 +1185,7 @@ a.move-top span{
 }
 @media(max-width:640px) {
 	.login-icon {
-		right: 17%;
+		right: 40%;
 	}
 }
 @media(max-width:600px) {
@@ -1191,13 +1198,13 @@ a.move-top span{
 		font-size: .6em;
 	}
 	.login-icon {
-		right: 14.5%;
+		right: 50%;
 	}
 }
 
 @media(max-width:568px) {
 	.login-icon {
-		right: 11.5%;
+		right: 55%;
 	}
 	.banner-text {
 		padding: 22vw 0 8vw;
@@ -1221,7 +1228,7 @@ a.move-top span{
 		padding: 25vw 0 8vw;
 	}
 	.login-icon {
-		right: 13.5%;
+		right: 60%;
 	}
 	.information p {
 		font-size: 14px;

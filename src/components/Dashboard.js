@@ -20,7 +20,7 @@ export class Dashboard extends Component {
         <header className="py-4">
           <div className="container">
             <nav className="d-lg-flex">
-              <label htmlFor="drop" className="toggle"><span className="fa fa-bars" aria-hidden="true"></span></label>
+              <label htmlFor="drop" className="toggle"><span className="fa fa-bars" aria-hidden="true">Menu</span></label>
               <input type="checkbox" id="drop" />
               <ul className="menu mt-2 ml-auto">
                 <li className=""><a href="#home">Home</a></li>
@@ -44,7 +44,7 @@ export class Dashboard extends Component {
                 </div>
               </div>
               <div className="col-lg-6 col-md-8 mt-lg-0 mt-sm-5 mt-3 banner-image text-lg-center">
-                {/* <img src="images/bannerpng.png" alt="" class="img-fluid"/> */}
+                {/* <img src="../images/globe.jpg" alt="" className="img-fluid"/> */}
               </div>
             </div>
           </div>
